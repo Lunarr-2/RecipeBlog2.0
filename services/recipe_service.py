@@ -12,7 +12,7 @@ def create_recipe(data):
         instructions=data.get("instructions")
     )
 
-    for item in data["ingredients",[]]:
+    for item in data.get("ingredients",[]):
         ingredient = Ingredient(
             name=item["name"],
             quantity=item.get("quantity"),
