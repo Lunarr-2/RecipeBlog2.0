@@ -1,3 +1,4 @@
+
 from extensions import db
 from models.recipe_model import Recipe
 from models.ingredient_model import Ingredient
@@ -7,10 +8,11 @@ def create_recipe(data):
     recipe = Recipe(
         title=data["title"],
         servings=data.get("servings"),
-        description=data.get("description")
+        description=data.get("description"),
+        instructions=data.get("instructions")
     )
 
-    for item in data["ingredients"]:
+    for item in data["ingredients",[]]:
         ingredient = Ingredient(
             name=item["name"],
             quantity=item.get("quantity"),
@@ -52,6 +54,7 @@ def serialize_recipe(recipe):
         "title": recipe.title,
         "servings": recipe.servings,
         "description": recipe.description,
+        "instructions": recipe.instructions,
         "ingredients": [
             {
                 "id": ing.id,

@@ -7,6 +7,7 @@ class Recipe(db.Model):
     title = db.Column(db.String(150), nullable=False)
     servings = db.Column(db.Integer)
     description = db.Column(db.Text)
+    instructions = db.Column(db.Text)
 
     ingredients = db.relationship(
         "Ingredient",
